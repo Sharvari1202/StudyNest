@@ -68,14 +68,14 @@ class Command(BaseCommand):
         created_count = 0
         updated_count = 0
 
-        for note_data in SEED_DATA:
+        for item in SEED_DATA:
             note, created = Note.objects.update_or_create(
-                id=note_data["id"],
+                id=item["id"],
                 defaults={
-                    "title": note_data["title"],
-                    "description": note_data["description"],
-                    "content": note_data["content"],
-                    "category": note_data["category"],
+                    "title": item["title"],
+                    "description": item["description"],
+                    "content": item["content"],
+                    "category": item["category"],
                 },
             )
             if created:
